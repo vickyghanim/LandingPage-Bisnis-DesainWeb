@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bisnis Desain Web - Solusi desain web profesional untuk bisnis Anda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Bisnis Desain Web</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f4f4f4;
+    }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    img { max-width: 100%; height: auto; }
+
+    header {
+      background: linear-gradient(135deg, #04AA6D, #038e5e);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    nav {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: background 0.3s;
+    }
+    nav a:hover { background: #04AA6D; }
+
+    .hero {
+      background: url('https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* LAYANAN */
+    #layanan { background: #fff; text-align: center; }
+    .services {
+      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+    }
+    .service {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 300px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .service i {
+      font-size: 2em;
+      color: #04AA6D;
+      margin-bottom: 10px;
+    }
+
+    /* TENTANG */
+    #tentang { text-align: center; }
+    .visi-misi {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align:left;
+      background:white;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* TESTIMONIAL */
+    .testimonial-slider {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .testimonial {
+      display: none;
+      padding:20px;
+      text-align:center;
+      background:#f9f9f9;
+      border-radius:8px;
+    }
+    .testimonial.active { display: block; }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background:#04AA6D;
+      color:white;
+      border:none;
+      padding:10px;
+      cursor:pointer;
+      border-radius:50%;
+    }
+    .prev { left:10px; }
+    .next { right:10px; }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    /* FORM */
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+      background:#f9f9f9;
+      padding:30px;
+      border-radius:8px;
+    }
+    input, textarea {
+      width:100%;
+      padding:10px;
+      border-radius:5px;
+      border:1px solid #ddd;
+    }
+    button {
+      background:#04AA6D;
+      color:white;
+      border:none;
+      padding:12px;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+    footer {
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    .social-links a {
+      color:white;
+      margin: 0 10px;
+      font-size:1.5em;
+    }
+
+    /* Back To Top */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background:#04AA6D;
+      color:white;
+      padding:10px;
+      border-radius:50%;
+      cursor:pointer;
+      display:none;
+    }
+
+    /* MODAL */
+    body.modal-open { overflow:hidden; }
+    .modal {
+      display:none;
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.5);
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
+    }
+    .modal-content {
+      background:white;
+      padding:20px;
+      border-radius:8px;
+      max-width:90%;
+      width:400px;
+      text-align:center;
+    }
+    .close {
+      background:#dc3545;
+      color:white;
+      border:none;
+      padding:8px 12px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:480px){
+      header h1 { font-size:1.5em; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Bisnis Desain Web</h1>
+    <p>Solusi Desain Web Profesional untuk Bisnis Anda</p>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#tentang">Tentang Kami</a>
+    <a href="#testimonials">Testimonial</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h2>Kami Hadir Sebagai Mitra Desain Web Bisnis Anda</h2>
+  </section>
+
+  <!-- LAYANAN -->
+  <section id="layanan">
+    <h2>Layanan Desain Web</h2>
+    <div class="services">
+
+      <div class="service" onclick="bukaModal('Website Business','Rp 1.500.000','Website profesional untuk usaha Anda dengan desain responsif dan fitur SEO.','https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-3985.jpg')">
+        <i class="fas fa-globe"></i>
+        <h3>Website Business</h3>
+        <p>Website profesional untuk usaha Anda</p>
+      </div>
+
+      <div class="service" onclick="bukaModal('E-Commerce','Rp 2.500.000','Toko online lengkap dengan sistem pembayaran dan manajemen inventori.','https://img.freepik.com/free-vector/online-shopping-illustration_23-2148557211.jpg')">
+        <i class="fas fa-shopping-cart"></i>
+        <h3>E-Commerce</h3>
+        <p>Toko online siap jualan!</p>
+      </div>
+
+      <div class="service" onclick="bukaModal('Maintenance Website','Rp 500.000 / bulan','Pemeliharaan rutin untuk menjaga performa website tetap optimal.','https://img.freepik.com/free-vector/flat-gears-logo-template_23-2149014036.jpg')">
+        <i class="fas fa-tools"></i>
+        <h3>Maintenance</h3>
+        <p>Website selalu optimal</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section id="tentang">
+    <h2>Tentang Kami</h2>
+    <div class="visi-misi">
+      <h3>Visi</h3>
+      <p>Menjadi mitra terbaik dalam pengembangan website bisnis di Indonesia.</p>
+      <h3>Misi</h3>
+      <ul>
+        <li>Solusi desain web inovatif</li>
+        <li>Dukungan digitalisasi UMKM</li>
+        <li>Layanan cepat dan profesional</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section id="testimonials">
+    <h2>Testimonial Klien</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <p>"Website bisnis saya jadi lebih profesional!"</p>
+        <cite>- Ahmad</cite>
+      </div>
+      <div class="testimonial">
+        <p>"E-Commerce-nya sangat membantu penjualan online."</p>
+        <cite>- Siti</cite>
+      </div>
+      <div class="testimonial">
+        <p>"Maintenance website-nya cepat dan responsif."</p>
+        <cite>- Budi</cite>
+      </div>
+      <button class="slider-btn prev" onclick="slideTestimonial(-1)">&#10094;</button>
+      <button class="slider-btn next" onclick="slideTestimonial(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <h2>Portfolio Kami</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://img.freepik.com/free-vector/website-creator-concept-illustration_114360-3985.jpg">
+        <h3>Website UMKM</h3>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://img.freepik.com/free-vector/online-shopping-illustration_23-2148557211.jpg">
+        <h3>Toko Online</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM KONTAK -->
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <div class="form-box">
+      <form>
+        <input type="text" placeholder="Nama Lengkap Anda" required>
+        <input type="email" placeholder="Email Aktif Anda" required>
+        <textarea rows="5" placeholder="Pesan Anda..." required></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Bisnis Desain Web</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+  <!-- MODAL -->
+  <div class="modal" id="modalService">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <img id="modal-image">
+      <p id="modal-desc"></p>
+      <p><strong>Harga: </strong><span id="modal-price"></span></p>
+      <button class="close" onclick="tutupModal()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // Modal Functions
+    function bukaModal(title, price, desc, image) {
+      document.body.classList.add("modal-open");
+      document.getElementById("modal-title").innerText = title;
+      document.getElementById("modal-price").innerText = price;
+      document.getElementById("modal-desc").innerText = desc;
+      document.getElementById("modal-image").src = image;
+      document.getElementById("modalService").style.display = "flex";
+    }
+    function tutupModal() {
+      document.body.classList.remove("modal-open");
+      document.getElementById("modalService").style.display = "none";
+    }
+    window.onclick = function(e){
+      if(e.target === document.getElementById("modalService")) tutupModal();
+    };
+
+    // Testimonial Slider
+    let currentSlide = 0;
+    const testimonials = document.querySelectorAll(".testimonial");
+    function slideTestimonial(dir){
+      testimonials[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + dir + testimonials.length) % testimonials.length;
+      testimonials[currentSlide].classList.add("active");
+    }
+
+    // Smooth Scroll Nav
+    document.querySelectorAll("nav a").forEach(a=>{
+      a.addEventListener("click", e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute("href"))
+        .scrollIntoView({behavior:"smooth"});
+      });
+    });
+
+    // Back To Top Button
+    window.addEventListener("scroll", ()=>{
+      const btt = document.getElementById("back-to-top");
+      btt.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    function scrollToTop(){
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+  </script>
+
+</body>
+</html>
