@@ -1,0 +1,155 @@
+/* CSS terpisah dari HTML */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #e9e9e9;
+  color: #222;
+}
+
+header {
+  background-color: #444;
+  padding: 30px 0;
+  text-align: center;
+  color: #fff;
+}
+
+header h1 {
+  font-size: 42px;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #222;
+}
+
+nav a {
+  color: #fff;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: .3s;
+}
+
+nav a:hover {
+  background-color: #04AA6D;
+}
+
+.hero {
+  height: 400px;
+  background: url('https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 8px #000;
+  font-size: 28px;
+  padding: 10px;
+  text-align: center;
+}
+
+#layanan {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.Services {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.Service {
+  width: 300px;
+  background: #444;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0,0,0,.2);
+  transition: .3s;
+}
+
+.Service:hover {
+  transform: translateY(-8px);
+  background-color: #04AA6D;
+}
+
+#tentang {
+  padding: 60px 20px;
+  background:#fff;
+  text-align:center;
+}
+
+.visi-misi {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+  margin-top: 25px;
+  line-height: 1.6;
+  border: 2px solid #04AA6D;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+#kontak {
+  background: #f7f7f7;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.form-box {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,.15);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+}
+
+button {
+  background: #04AA6D;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
